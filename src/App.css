@@ -112,7 +112,7 @@ body {
 .logo {
   font-weight: 700;
   font-size: 1.5rem;
-   color: var(--neon-accent);
+  color: var(--neon-accent);
   text-shadow: 0 0 8px var(--neon-accent), 0 0 20px var(--neon-primary);
 }
 
@@ -158,19 +158,39 @@ body {
   text-shadow: 0 0 8px var(--neon-secondary), 0 0 20px var(--neon-primary);
 }
 
-/* Responsive: stack logo and nav vertically on smaller screens */
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--neon-primary);
+  text-shadow: 0 0 8px var(--neon-primary), 0 0 20px var(--neon-accent);
+}
+
+/* Responsive styles */
 @media (max-width: 768px) {
   .nav-container {
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row; /* keep logo + hamburger in one line */
+    justify-content: space-between;
     align-items: center;
+    gap: 0;
   }
 
   .nav-links {
+    display: none; /* hide links initially */
     flex-direction: column;
     gap: 1rem;
     width: 100%;
+    margin-top: 0.5rem;
     text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex; /* show when hamburger clicked */
+  }
+
+  .hamburger {
+    display: block; /* show hamburger on mobile */
   }
 }
 
