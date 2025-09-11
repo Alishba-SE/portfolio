@@ -5,7 +5,7 @@ import project2 from "../assets/LushSS.jpg";
 import project3 from "../assets/hireahelperSS.jpg";
 import project4 from "../assets/handSS.jpg";
 import project5 from "../assets/bioscoutSS.jpg";
-import project6 from "../assets/hireahelperSS.jpg";
+import project6 from "../assets/weatherSS.png";
 import project7 from "../assets/baazsSS.jpg";
 
 const projects = [
@@ -59,7 +59,7 @@ link: "#",
   {
     id: 7,
     title: "BAAZS Clothing Store",
-    description: "Trained a hand gesture recognition model using Teachable Machine to classify various gestures for potential sign language applications.",
+    description: "Built an interactive clothing store website with user authentication .",
     image: project7,
     link: "#",
   },
