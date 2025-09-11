@@ -1,23 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Education from "./components/Education"; // ⬅️ NEW
+import Education from "./components/Education";
 import About from "./components/About";
 
 function App() {
-  // Hamburger toggle for mobile
-  useEffect(() => {
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.getElementById("nav-links");
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    hamburger.addEventListener("click", () => {
-      navLinks.classList.toggle("active");
-    });
-  }, []);
+  // Scroll to section smoothly
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false); // close menu after clicking
+    }
+  };
 
   return (
     <div className="neon-portfolio">
@@ -34,15 +35,21 @@ function App() {
         <div className="nav-container">
           <div className="logo">Alishba Qureshi</div>
 
-          <nav className="nav-links" id="nav-links">
-            <a href="#about" className="nav-link">About me</a>
-            <a href="#education" className="nav-link">My Journey</a>
-            <a href="#projects" className="nav-link">Projects</a>
-            <a href="#skills" className="nav-link">Skills</a>
-            <a href="#contact" className="nav-link">Contact</a>
+          <nav className={`nav-links ${menuOpen ? "active" : ""}`} id="nav-links">
+            <button onClick={() => scrollToSection("about")} className="nav-link">About me</button>
+            <button onClick={() => scrollToSection("education")} className="nav-link">My Journey</button>
+            <button onClick={() => scrollToSection("projects")} className="nav-link">Projects</button>
+            <button onClick={() => scrollToSection("skills")} className="nav-link">Skills</button>
+            <button onClick={() => scrollToSection("contact")} className="nav-link">Contact</button>
           </nav>
 
-          <div className="hamburger" id="hamburger">&#9776;</div>
+          <div
+            className={`hamburger ${menuOpen ? "open" : ""}`}
+            id="hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            &#9776;
+          </div>
         </div>
       </header>
 
@@ -50,7 +57,7 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Education /> {/* ⬅️ NEW SECTION */}
+        <Education />
         <Projects />
         <Skills />
         <Contact />

@@ -8,6 +8,10 @@
   --background: #0a0a0f;
   --foreground: #fafafa;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 * {
   box-sizing: border-box;
@@ -87,6 +91,7 @@ body {
   opacity: 0.3;
 }
 
+
 /* ------------------- Header ------------------- */
 .header {
   position: sticky;
@@ -121,7 +126,9 @@ body {
   gap: 2rem;
 }
 
-.nav-links a {
+.nav-link {
+  background: none;
+  border: none;
   color: var(--foreground);
   text-decoration: none;
   font-weight: 500;
@@ -129,9 +136,10 @@ body {
   position: relative;
   padding: 0.25rem 0;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.nav-links a::before {
+.nav-link::before {
   content: '';
   position: absolute;
   bottom: -4px;
@@ -144,16 +152,16 @@ body {
   border-radius: 2px;
 }
 
-.nav-links a:hover::before {
+.nav-link:hover::before {
   width: 100%;
 }
 
-.nav-links a:hover {
+.nav-link:hover {
   color: var(--neon-primary);
   text-shadow: 0 0 8px var(--neon-primary), 0 0 20px var(--neon-secondary);
 }
 
-.nav-links a.active {
+.nav-link.active {
   color: var(--neon-secondary);
   text-shadow: 0 0 8px var(--neon-secondary), 0 0 20px var(--neon-primary);
 }
