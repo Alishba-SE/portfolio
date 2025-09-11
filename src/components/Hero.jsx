@@ -1,7 +1,7 @@
 // src/components/Hero.jsx
 import React from "react";
-import profileImage from "../assets/alishbaa.png"; // Replace with your image path
-
+import profileImage from "../assets/alishba.png"; // Replace with your image path
+import profileImage1 from "../assets/alishbaa-removebg-preview.png";
 const Hero = () => {
   return (
     <section className="hero-section relative min-h-screen flex items-center">
